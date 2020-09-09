@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Listado de cuentas {% endblock %}
+
+{% block content %} 
+<a href="/cuentas/">Volver al listado</a>
+
+<h1>Cuenta de <strong>{{cuenta.nombre}}</strong></h1>
+
+<p>{{ cuenta.direccion }}</p>
+<p>{{ cuenta.localidad }}</p>
+<p>{{ cuenta.email }}</p>
+
+<ol>
+    {% for m in movimientos %}
+        <li>
+            {{m.fecha }} | {{m.importe }} | {{m.comprobante}}
+        </li>
+{% endfor %}
+</ol>
+
+
+    
+{% endblock %}
