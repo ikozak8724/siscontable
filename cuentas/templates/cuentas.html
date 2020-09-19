@@ -1,8 +1,6 @@
 <ul>
-{% for c in cuentas %}
-    <li>{{c.nombre}}-{{c.emai}}</li>
-{% endfor %}
+    {% for c in cuentas%}
+        <li>{{c.nombre}} - {{c.email}}</li>
+    {% endfor %}
 </ul>
-<p>
-    el total de cuentas es {{total}}
-</p>
+<p>total de cuentas: {{total}}</p>

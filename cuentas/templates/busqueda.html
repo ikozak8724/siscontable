@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Buscar Movimientos {% endblock%}
+
+{% block content %}
+
+<form action='/busqueda/' method="POST">
+    
+    {% csrf_token %}
+    {{ form }}
+    
+    <input type='submit' value="Buscar">
+</form>
+
+{% endblock %}

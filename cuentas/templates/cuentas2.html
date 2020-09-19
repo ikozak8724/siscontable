@@ -1,20 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Listado de cuentas {% endblock %}
 
-{% block content %} 
-<h6>Este es el template de cuentas 2</h6>
-<ol>
-    {% for c in cuentas %}
-    <li>
-        <a href="/cuentas/{{ c.id }}">
+{% block title %} Listado de cuentas {% endblock %}
 
-        {{c.nombre|upper}}{% if c.email %} - 
-        {% endif %} 
-        <strong> {{c.email}}</strong>
-    </a>
-
-    </li>
-    {% endfor %}
-</ol>
-    
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Todas las cuentas:</h1>
+        <ol>
+            {% for c in cuentas%}
+            <li>
+                <a href="/cuentas/{{c.id}}">
+                {{ c.nombre|upper }} {% if c.email%} - {%endif%} <strong>{{c.email}}</strong>
+            </a>
+            </li>
+            {%endfor%}
+        </ol>
+    {% else %}
+        <h2>Necesita iniciar sesion para ver esta pagina.</h2>
+        <a href="/accounts/login">Iniciar sesion</a>
+    {% endif %}
+        
 {% endblock %}

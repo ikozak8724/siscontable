@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Resultados para {{query}} {% endblock%}
+
+{%block content%}
+
+<form action='/busqueda/' method="POST">
+    
+    {% csrf_token %}
+    {{ form }}
+    
+    <input type='submit' value="Buscar">
+</form>
+
+<h2>Se busco: {{query}}</h2>
+
+{%for movimiento in movimientos %}
+    <p>{{movimiento.fecha}} {{movimiento.cuenta}} {{movimiento.importe}} {{movimiento.comprobante}}</p>
+{% endfor %}
+
+{%endblock%}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} Movimiento guardado {{query}} {% endblock%}
+
+{%block content%}
+
+<h2>Movimiento guardado correctamente</h2>
+
+{% for movimiento in movimientos %}
+    <p>{{movimiento.fecha}} {{movimiento.cuenta}} {{movimiento.importe}} {{movimiento.comprobante}}</p>
+{% endfor %}
+
+{%endblock%}

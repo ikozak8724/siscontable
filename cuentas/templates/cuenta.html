@@ -1,23 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Listado de cuentas {% endblock %}
+{% block title%} Cuenta: {{cuenta.nombre}} {% endblock %}
 
-{% block content %} 
+{% block content%}
 <a href="/cuentas/">Volver al listado</a>
+<h1>Cuenta de <b>{{cuenta.nombre}}</b></h1>
 
-<h1>Cuenta de <strong>{{cuenta.nombre}}</strong></h1>
+<p>{{cuenta.direccion}}</p>
+<p>{{cuenta.localidad}}</p>
+<p>{{cuenta.email}}</p>
 
-<p>{{ cuenta.direccion }}</p>
-<p>{{ cuenta.localidad }}</p>
-<p>{{ cuenta.email }}</p>
+<table>
+    <tbody>
+        {% for mov in movimientos %}
+            <tr>
+                <td>{{mov.fecha}}</td>
+                <td>{{mov.importe}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-<ol>
-    {% for m in movimientos %}
-        <li>
-            {{m.fecha }} | {{m.importe }} | {{m.comprobante}}
-        </li>
-{% endfor %}
-</ol>
-
-
-    
 {% endblock %}

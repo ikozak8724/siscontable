@@ -1,0 +1,17 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Esta es la pagina de inicio</h1>
+    {% else %}
+        <h1>Necesita iniciar sesion para ver esta pagina.</h1>
+        <a href="/accounts/login">Iniciar sesion</a>
+    {% endif %}
+</body>
+</html>
